@@ -1,0 +1,7 @@
+optimum = four highest values on 200/200 seeds; mean 92.6, min 54, max 116; 4th and 5th value tied on 50 seeds
+efficiency, Smart binding minus SmartCautious handshake: mean 0.086, paired sd 0.155
+seat score, SmartCautious handshake: mean 24.9, sd 9.0
+never-deliver seat among SmartCautious: paired gain +5.04, paired sd 9.3
+  n=20: se of paired efficiency diff 0.035; se of paired seat diff 2.1
+  n=40: se of paired efficiency diff 0.024; se of paired seat diff 1.5
+binding deals by round, all Smart: [3.3, 4.2, 3.2, 2.4, 1.8, 1.0, 0.6, 0.4]

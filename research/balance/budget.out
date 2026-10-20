@@ -1,0 +1,17 @@
+cache reads as a share of input tokens: Haiku seat 80% (8 turns) / 82% (9), Sonnet seat 80% / 82%; peak context 22,000 tokens (Haiku, 9 turns)
+per game, binding / handshake: all Haiku $0.040 / $0.046; one Sonnet seat $0.201 / $0.227; all Sonnet $1.006 / $1.133
+token model for the probe games: all-Haiku 3 rounds $0.0156; all-Sonnet 2 rounds $0.2742
+P0 layout probe, billed                                                          $ 0.30
+P1 pilots (4 all-Haiku, one per arm; 2 all-Sonnet, the two talk arms)            $ 2.31
+E1 all Haiku, 40 seeds x 4 arms                                                  $ 6.86
+E3 one script seat among Haiku, 20 seeds x 2 silent arms                         $ 1.43
+V decision evals via the broker (Haiku 40 tasks x 3 arms, Sonnet 20, k=3)        $ 1.44
+R samples (4 all-Haiku games, one per arm; 1 all-Sonnet handshake-talk)          $ 1.30
+OpenAI probe, only with a key                                                    $ 0.30
+E2 one Sonnet seat, 2 arms, hard cap                                             $ 7.00
+total                                                                            $20.94; reserve $4.06 of $25 (16%)
+E2 uncapped at this token model: $8.56; seeds that fit $7: 16 per arm
+E2 detectable seat effect at 16 seeds, paired sd 8.6: 6.0 points (2.8 se)
+E2 detectable seat effect at 16 seeds, paired sd 12.5: 8.8 points (2.8 se)
+E1 talk effect, handshake: paired sd 0.168, se 0.027 at 40 seeds, detectable 0.074
+E1 enforcement effect, talk: paired sd 0.095, se 0.015 at 40 seeds, detectable 0.042

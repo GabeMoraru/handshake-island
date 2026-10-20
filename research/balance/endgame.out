@@ -1,0 +1,60 @@
+ENDGAME OPTIONS, seeds 1-200, kernel information rule; value (se). Gains are paired seat gains in points.
+                                                             (a) tested rules  (b) proposer turn     (c) settlement
+handshake-silent Smart                                          0.819 (0.012)      0.810 (0.013)      0.815 (0.012)
+mara - nia, handshake Smart                                      +2.73 (0.99)       +4.12 (0.93)       +3.69 (0.95)
+handshake-silent SmartCautious                                  0.855 (0.010)      0.845 (0.011)      0.852 (0.010)
+mara - nia, handshake SmartCautious                              +1.50 (0.89)       +2.50 (0.85)       +2.05 (0.86)
+handshake-talk Gossip                                           0.785 (0.014)      0.781 (0.014)      0.785 (0.014)
+handshake-talk truthful revealers                               0.955 (0.007)      0.937 (0.008)      0.955 (0.007)
+handshake Strict (both sides wait)                              0.004 (0.002)      0.004 (0.002)      0.004 (0.002)
+never-deliver among Strict                                       +0.00 (0.00)       +0.00 (0.00)       +0.00 (0.00)
+never-deliver among Smart                                       +16.29 (0.87)      +16.36 (0.83)      +16.50 (0.87)
+never-deliver among SmartCautious                                +4.44 (0.62)       +4.82 (0.64)       +4.51 (0.61)
+never-deliver among Gossip                                       +1.54 (0.89)       +1.51 (0.88)       +1.50 (0.88)
+never-deliver among truthful revealers                           +3.65 (0.48)       +3.95 (0.49)       +3.70 (0.47)
+rounds-7-8 reneger among Smart                                   +2.73 (0.49)       +2.23 (0.41)       +3.06 (0.52)
+round-8-only reneger among Smart                                 +1.16 (0.32)       +0.56 (0.18)       +1.53 (0.37)
+settlement-only reneger among Smart                                       n/a                n/a       +0.38 (0.17)
+last-turn bidder among Smart                                     +3.36 (0.47)       +0.00 (0.00)       +3.73 (0.51)
+round-8-only reneger among SmartCautious                         -0.73 (0.46)       -1.16 (0.44)       -0.67 (0.44)
+settlement-only reneger among SmartCautious                               n/a                n/a       -1.42 (0.42)
+last-turn bidder among SmartCautious                             +0.99 (0.61)       -1.73 (0.43)       +1.30 (0.60)
+no_turn sides, Smart                                              0.32 (0.04)        0.00 (0.00)        0.00 (0.00)
+deliberate holds after delivery, Smart                            0.00 (0.00)        0.00 (0.00)        0.00 (0.00)
+calls, Smart                                                     48.00 (0.00)       48.00 (0.00)       49.88 (0.08)
+sides delivered at settlement, Smart                                      n/a                n/a        0.34 (0.05)
+no_turn sides, SmartCautious                                      0.35 (0.05)        0.00 (0.00)        0.00 (0.00)
+deliberate holds after delivery, SmartCautious                    0.12 (0.03)        0.12 (0.03)        0.06 (0.02)
+calls, SmartCautious                                             48.00 (0.00)       48.00 (0.00)       51.00 (0.11)
+sides delivered at settlement, SmartCautious                              n/a                n/a        0.41 (0.06)
+no_turn sides, Gossip                                             0.18 (0.04)        0.00 (0.00)        0.00 (0.00)
+deliberate holds after delivery, Gossip                           0.86 (0.11)        0.86 (0.11)        0.86 (0.11)
+calls, Gossip                                                    48.00 (0.00)       48.00 (0.00)       51.34 (0.11)
+sides delivered at settlement, Gossip                                     n/a                n/a        0.15 (0.03)
+no_turn sides, truthful revealers                                 0.10 (0.02)        0.00 (0.00)        0.00 (0.00)
+deliberate holds after delivery, truthful revealers               0.00 (0.00)        0.00 (0.00)        0.00 (0.00)
+calls, truthful revealers                                        48.00 (0.00)       48.00 (0.00)       49.73 (0.11)
+sides delivered at settlement, truthful revealers                         n/a                n/a        0.10 (0.02)
+calls: 48 under (a) and (b); under (c) 48 + residents owing a side at settlement (54 if every resident is called).
+PAIRED EFFICIENCY vs (a): mean (se)
+  Smart                (b) - (a): -0.008 (0.004)
+  Smart                (c) - (a): -0.004 (0.002)
+  SmartCautious        (b) - (a): -0.009 (0.005)
+  SmartCautious        (c) - (a): -0.003 (0.002)
+  Gossip               (b) - (a): -0.005 (0.003)
+  Gossip               (c) - (a): +0.000 (0.000)
+  truthful revealers   (b) - (a): -0.017 (0.004)
+  truthful revealers   (c) - (a): +0.000 (0.000)
+PAIRED SDs for sizing: efficiency contrasts (kernel_rules.out 4f under (a)) and never-deliver seat scores
+  (a) talk effect, gossip              mean -0.070, sd 0.167
+  (a) talk effect, truthful revealers  mean +0.100, sd 0.157
+  (a) enforcement effect with talk     mean +0.012, sd 0.095
+  (a) never-deliver seat sd: among Smart 12.2, among SmartCautious 8.8, among Gossip 12.5, among truthful revealers 6.7
+  (c) talk effect, gossip              mean -0.067, sd 0.168
+  (c) talk effect, truthful revealers  mean +0.103, sd 0.156
+  (c) enforcement effect with talk     mean +0.012, sd 0.095
+  (c) never-deliver seat sd: among Smart 12.3, among SmartCautious 8.6, among Gossip 12.5, among truthful revealers 6.7
+COST of 6 settlement calls (budget.py token model): all-Haiku game +$0.0053 (on $0.040), all-Sonnet +$0.127 (on $1.006); E1 handshake arms (40 seeds x 2 arms, all Haiku) +$0.42; max calls a game 144 -> 162
+RULES TEXT (b), 35 words: You may make an offer only to a resident who will answer it before your own last turn, so that you still have a turn to deliver your side; the state lists who that is.
+RULES TEXT (c), 58 words: Settlement. After round 8 every resident who still owes a side takes one settlement turn. Only its deliveries count; answers, offers and messages are ignored. Nobody sees anyone else's settlement choices before making their own, and all of them apply together, so you can deliver only goods you hold when settlement begins. Then projects complete and scores count.
+RULES TEXT (a): 0 words; the state already shows each round's order.

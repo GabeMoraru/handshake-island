@@ -1,0 +1,5 @@
+*
+!Containerfile
+!handshake/
+!handshake/**
+handshake/__pycache__/

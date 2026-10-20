@@ -1,0 +1,40 @@
+1. STRUCTURE
+  recipes need {'wood': 15, 'rope': 12, 'nails': 7, 'cloth': 9} supply {'wood': 16, 'rope': 8, 'nails': 8, 'cloth': 10} (barter_sim.py:24 comment says cloth 10)
+  cabin (needs no rope) in the optimum: 200/200; optimum equals a rope-only knapsack: 200/200
+  projects dropped by the optimum: [(('net',), 179), (('boat', 'smokehouse'), 8), (('sledge', 'tent'), 7), (('boat', 'sledge'), 4), (('boat', 'tent'), 2)]
+  share of a resident's starting materials outside its own recipe (worth 0 to it): 0.27
+2. TALK-FREE EXPLOITS, binding arm
+  Lowball (1 fish/unit) among Smart                            gain  +1.54 (se 0.58, sd   8.2)  others  -3.71  eff 0.77 vs 0.79
+  Lowball among SmartHard (sell >= 2/unit)                     gain  -4.93 (se 0.76, sd  10.8)  others  -3.12  eff 0.67 vs 0.74
+  Lowball, all seats (efficiency of the table)                 gain  +0.19 (se 0.71, sd  10.0)  others  -1.84  eff 0.77 vs 0.79
+  SmartCautious seat among Smart (moderate swap, sd for power) gain  +2.29 (se 0.50, sd   7.0)  others  -0.81  eff 0.72 vs 0.71
+3. HANDSHAKE ARM: reputation, gossip, slander, endgame
+  SmartReneger among Smart (v1 recipes: +14.94)                gain +14.94 (se 0.87, sd  12.4)  others -26.53  eff 0.59 vs 0.71
+  SmartReneger among SmartCautious (v1 recipes: +6.83)         gain  +6.83 (se 0.71, sd  10.0)  others -16.60  eff 0.66 vs 0.76
+  SmartReneger among Gossip (cautious + shared blacklist)      gain  +3.42 (se 0.84, sd  11.9)  others  -9.99  eff 0.49 vs 0.56
+  all Gossip vs all SmartCautious (honest table)               gain  -2.75 (se 0.69, sd   9.7)  others -17.16  eff 0.56 vs 0.76
+  Slanderer among Gossip (false public accusation)             gain  +1.47 (se 0.63, sd   9.0)  others  -7.71  eff 0.50 vs 0.56
+  Slanderer among SmartCautious (accusations ignored)          gain  -0.02 (se 0.57, sd   8.1)  others  -1.40  eff 0.74 vs 0.76
+  SmartLateReneger (rounds 7-8) among Smart                    gain  +1.22 (se 0.28, sd   4.0)  others  -2.01  eff 0.70 vs 0.71
+  SmartLateReneger (rounds 7-8) among SmartCautious            gain  -0.84 (se 0.44, sd   6.2)  others  -1.03  eff 0.74 vs 0.76
+  SmartCautiousLateReneger among SmartCautious                 gain  +0.74 (se 0.23, sd   3.3)  others  -1.90  eff 0.75 vs 0.76
+  SmartLastReneger (round 8 only) among Smart                  gain  +0.24 (se 0.10, sd   1.5)  others  -0.47  eff 0.71 vs 0.71
+4. INTERACTION DENSITY AND PACING
+  handshake, all Smart: distinct trading pairs 10.3 of 15; pairs with 2+ deals 3.7; agreements still open when round 8 starts 2.20
+  binding, all Smart, ROUNDS= 4: eff 0.640
+  binding, all Smart, ROUNDS= 6: eff 0.745
+  binding, all Smart, ROUNDS= 8: eff 0.792
+  binding, all Smart, ROUNDS=12: eff 0.809
+  binding, all Smart, ROUNDS=16: eff 0.812
+  binding, all Smart, START_FISH= 3: eff 0.662
+  binding, all Smart, START_FISH= 6: eff 0.792
+  binding, all Smart, START_FISH=12: eff 0.847
+  binding, all Smart, START_FISH=30: eff 0.855
+5. VALUE OF TALK (binding arm): truthful public values vs a seat that inflates its value to 30
+  all truthful revealers vs all Smart (silent)                 gain  +1.67 (se 0.59, sd   8.4)  others  +8.82  eff 0.89 vs 0.79
+  one seat claims 30 among truthful revealers                  gain  +0.12 (se 0.18, sd   2.6)  others  -1.21  eff 0.88 vs 0.89
+  inflating to 30 moves the liar into the optimum on 17/200 seeds
+6. ENDGAME FIX: hold k rope back and deal it at the start of round 5 (index 4)
+  late rope 0: SmartLateReneger among Smart gain +1.22 (se 0.28); eff binding 0.79, handshake 0.71
+  late rope 3: SmartLateReneger among Smart gain +1.78 (se 0.32); eff binding 0.78, handshake 0.69
+  late rope 5: SmartLateReneger among Smart gain +2.62 (se 0.45); eff binding 0.77, handshake 0.67

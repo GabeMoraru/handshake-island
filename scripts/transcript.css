@@ -1,0 +1,389 @@
+/* The transcripts' one stylesheet (scripts/transcript.py). Light and dark follow the reader's system setting. */
+
+:root {
+  color-scheme: light dark;
+  --bg: #f6f4ef;
+  --surface: #fffdf8;
+  --ink: #22262c;
+  --muted: #5f656e;
+  --line: #e1dcd1;
+  --accent: #2b6a86;
+  --quote: #eef0ec;
+  --chip: #ebe7de;
+  --true-ink: #1d6a3a;
+  --true-bg: #dff0e3;
+  --false-ink: #a13b24;
+  --false-bg: #f8e2da;
+  --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --serif: ui-serif, "Iowan Old Style", Charter, Georgia, serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #15181c;
+    --surface: #1c2026;
+    --ink: #e3e0d9;
+    --muted: #9aa1aa;
+    --line: #2e343b;
+    --accent: #80b6cd;
+    --quote: #20262b;
+    --chip: #282d34;
+    --true-ink: #93d3a6;
+    --true-bg: #1a3324;
+    --false-ink: #f1a592;
+    --false-bg: #3c221c;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 2.5rem 1rem 4rem;
+  background: var(--bg);
+  color: var(--ink);
+  font: 16px/1.55 var(--sans);
+  overflow-wrap: break-word;
+  -webkit-text-size-adjust: 100%;
+}
+
+a {
+  color: var(--accent);
+}
+
+h1 {
+  margin: 0.2rem 0 0.4rem;
+  font-size: 2rem;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+h2 {
+  margin: 0 0 0.75rem;
+  font-size: 1.3rem;
+}
+
+h3 {
+  margin: 1.25rem 0 0.5rem;
+  font-size: 1rem;
+}
+
+.crumbs {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.lede {
+  margin: 0 0 1rem;
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+
+dl {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 0.25rem 1rem;
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+dt {
+  color: var(--muted);
+}
+
+dd {
+  margin: 0;
+}
+
+.note {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* The result of a game that did not complete, in its header and in the index */
+.stopped,
+.games .stopped {
+  color: var(--false-ink);
+}
+
+/* About 75 characters a line */
+.lede,
+.note,
+.thought,
+.aside,
+.rejection {
+  max-width: 34em;
+}
+
+.id {
+  color: var(--muted);
+  font-size: 0.8em;
+}
+
+/* Scoreboard */
+
+.scoreboard {
+  margin: 2rem 0;
+  padding: 1.25rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  font-variant-numeric: tabular-nums;
+}
+
+th,
+td {
+  padding: 0.45rem 0.35rem;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+}
+
+thead th {
+  color: var(--muted);
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.num {
+  text-align: right;
+}
+
+.top {
+  background: var(--quote);
+}
+
+.top .score {
+  font-weight: 650;
+}
+
+.sub {
+  display: block;
+  color: var(--muted);
+  font-size: 0.8rem;
+  font-weight: 400;
+}
+
+.sub.built {
+  color: var(--true-ink);
+}
+
+.broken {
+  margin: 0;
+  padding-left: 1.1rem;
+}
+
+/* Rounds and turns */
+
+.rounds {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0 0 2rem;
+}
+
+.rounds a {
+  padding: 0.15rem 0.6rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+
+.round {
+  margin: 0 0 2.5rem;
+}
+
+.round h2 {
+  padding-bottom: 0.4rem;
+  border-bottom: 2px solid var(--ink);
+}
+
+.turn {
+  display: grid;
+  grid-template-columns: 5.5rem minmax(0, 1fr);
+  gap: 0 1rem;
+  padding: 0.7rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.turn h3 {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.events,
+.lapsed {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.events li,
+.lapsed li {
+  margin: 0 0 0.3rem;
+}
+
+.audience {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.message {
+  margin: 0.15rem 0 0.35rem;
+  padding: 0.5rem 0.8rem;
+  background: var(--quote);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 8px 8px 0;
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.claims {
+  margin: 0 0 0.5rem;
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.claim,
+.tag {
+  display: inline-block;
+  margin: 0.1rem 0.15rem 0.1rem 0;
+  padding: 0 0.5rem;
+  background: var(--chip);
+  border-radius: 999px;
+  color: var(--muted);
+  font-size: 0.8rem;
+  line-height: 1.6;
+  white-space: nowrap;
+}
+
+.claim.true {
+  background: var(--true-bg);
+  color: var(--true-ink);
+}
+
+.claim.false,
+.tag.deliberate {
+  background: var(--false-bg);
+  color: var(--false-ink);
+}
+
+.default {
+  font-style: italic;
+}
+
+/* Green where goods moved, red where a side was held or a swap failed */
+.events .swap,
+.events .deliver,
+.events .hold,
+.events .swap_failed {
+  padding-left: 0.5rem;
+  border-left: 3px solid var(--true-ink);
+}
+
+.events .hold,
+.events .swap_failed {
+  border-left-color: var(--false-ink);
+}
+
+.events .decline {
+  color: var(--muted);
+}
+
+details {
+  margin-top: 0.3rem;
+}
+
+summary {
+  color: var(--accent);
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.attempt {
+  margin: 0.6rem 0 0.2rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.thought,
+.aside,
+.rejection {
+  margin: 0.4rem 0;
+  padding-left: 0.8rem;
+  border-left: 2px solid var(--line);
+  color: var(--muted);
+  font-size: 0.9rem;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.rejection {
+  border-left-color: var(--false-ink);
+}
+
+.label {
+  font-weight: 600;
+}
+
+/* Index */
+
+.games {
+  margin: 2rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.games li {
+  margin: 0 0 0.75rem;
+  padding: 1rem 1.25rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+
+.games a {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.games span {
+  display: block;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+@media (max-width: 36rem) {
+  body {
+    padding-top: 1.5rem;
+  }
+
+  h1 {
+    font-size: 1.6rem;
+  }
+
+  .scoreboard {
+    padding: 1rem 0.75rem;
+  }
+
+  .turn {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .turn h3 {
+    margin-bottom: 0.3rem;
+  }
+}

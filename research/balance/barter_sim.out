@@ -1,0 +1,35 @@
+seed 1: {'mara': 'smokehouse', 'rowan': 'tent', 'marcus': 'boat', 'theo': 'cabin', 'nia': 'sledge', 'felix': 'net'} {'mara': 24, 'rowan': 24, 'marcus': 30, 'theo': 22, 'nia': 16, 'felix': 12}
+mean best total 100.76 | mean projects in best set 4.94
+binding, all Trader                                        eff 0.42  deals  8.0
+no trade                                                   eff 0.01
+talk-only, all Trader (naive, always deliver)              eff 0.42  deals  8.5  broken 0.9
+binding, all HardBargainer                                 eff 0.30  deals  2.7
+talk-only, all Cautious                                    eff 0.44  deals  9.1  broken 0.3
+binding, all Smart                                         eff 0.79  deals 14.3
+talk-only, all Smart                                       eff 0.71  deals 15.1  broken 2.1
+talk-only, all SmartCautious                               eff 0.76  deals 16.4  broken 1.1
+talk-only, one SmartReneger among Smart                    eff 0.59  deals 14.6  broken 5.4
+    vs talk-only all-Smart: deviant gains +14.94 pts (se 0.87); the other five -26.53 in total
+talk-only, one SmartReneger among SmartCautious            eff 0.66  deals 17.6  broken 2.5
+    vs talk-only all-SmartCautious: deviant gains +6.83 pts (se 0.71); the other five -16.60 in total
+binding, one SmartReneger among Smart                      eff 0.79  deals 14.3
+    vs binding all-Smart: deviant gains +0.00 pts (se 0.00); the other five +0.00 in total
+talk-only, all Cautious (baseline for pairing)             eff 0.44  deals  9.1  broken 0.3
+binding, one Reneger among Traders                         eff 0.42  deals  8.0
+    vs binding all-Trader: deviant gains +0.00 pts (se 0.00); the other five +0.00 in total
+talk-only, one Reneger among Traders                       eff 0.37  deals  8.9  broken 3.6
+    vs talk-only all-Trader: deviant gains +12.17 pts (se 0.80); the other five -16.45 in total
+talk-only, one Reneger among Cautious                      eff 0.36  deals 15.1  broken 1.2
+    vs talk-only all-Cautious: deviant gains +5.01 pts (se 0.77); the other five -13.52 in total
+binding, one LateReneger among Traders                     eff 0.42  deals  8.0
+    vs binding all-Trader: deviant gains +0.00 pts (se 0.00); the other five +0.00 in total
+talk-only, one LateReneger among Traders                   eff 0.42  deals  8.5  broken 1.0
+    vs talk-only all-Trader: deviant gains +0.35 pts (se 0.17); the other five -0.42 in total
+talk-only, one LateReneger among Cautious                  eff 0.44  deals  9.0  broken 0.5
+    vs talk-only all-Cautious: deviant gains -0.47 pts (se 0.34); the other five +0.67 in total
+binding, one HardBargainer among Traders                   eff 0.40  deals  7.0
+    vs binding all-Trader: deviant gains +0.82 pts (se 0.57); the other five -2.61 in total
+talk-only, one HardBargainer among Traders                 eff 0.41  deals  7.9  broken 0.9
+    vs talk-only all-Trader: deviant gains +1.69 pts (se 0.59); the other five -2.06 in total
+talk-only, one HardBargainer among Cautious                eff 0.44  deals  8.3  broken 0.4
+    vs talk-only all-Cautious: deviant gains +0.68 pts (se 0.59); the other five -1.21 in total

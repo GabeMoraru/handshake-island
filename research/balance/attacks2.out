@@ -1,0 +1,27 @@
+== v1: recipes need {'wood': 15, 'rope': 12, 'nails': 7, 'cloth': 9}
+  modal dropped set ('net',) on 179/200 seeds; projects in optimum 4.89; a max value lie changes the optimum for the liar on 17/200 seeds
+  no trade 0.01; Smart binding 0.79; Smart handshake 0.71; SmartCautious handshake 0.76
+  truthful public values (binding) 0.89
+  talk-free "net owner folds" (binding) 0.89
+  talk-free "fold if my value < 12" (binding) 0.76
+  talk-free "fold if my value < 14" (binding) 0.73
+  talk-free "fold if my value < 16" (binding) 0.67
+  talk-free "fold if my value < 18" (binding) 0.62
+  value lie (claim 30) among truthful revealers: gain +0.12 (se 0.18); others -1.21
+  never-deliver among Smart        : gain +14.94 (se 0.87); table eff 0.59 vs 0.71
+  never-deliver among SmartCautious: gain +6.83 (se 0.71); table eff 0.66 vs 0.76
+  never-deliver among Gossip       : gain +3.42 (se 0.84); table eff 0.49 vs 0.56
+  Lowball among Smart (binding): gain +1.54 (se 0.58)
+== variant A (rope 2 each): recipes need {'wood': 16, 'rope': 12, 'nails': 7, 'cloth': 10}
+  modal dropped set ('net', 'smokehouse') on 17/200 seeds; projects in optimum 4.00; a max value lie changes the optimum for the liar on 65/200 seeds
+  no trade 0.00; Smart binding 0.81; Smart handshake 0.71; SmartCautious handshake 0.75
+  truthful public values (binding) 0.80
+  talk-free "fold if my value < 12" (binding) 0.81
+  talk-free "fold if my value < 14" (binding) 0.78
+  talk-free "fold if my value < 16" (binding) 0.75
+  talk-free "fold if my value < 18" (binding) 0.70
+  value lie (claim 30) among truthful revealers: gain +1.11 (se 0.26); others -2.94
+  never-deliver among Smart        : gain +15.44 (se 0.83); table eff 0.58 vs 0.71
+  never-deliver among SmartCautious: gain +5.92 (se 0.73); table eff 0.66 vs 0.75
+  never-deliver among Gossip       : gain +2.56 (se 0.84); table eff 0.51 vs 0.55
+  Lowball among Smart (binding): gain -1.81 (se 0.73)

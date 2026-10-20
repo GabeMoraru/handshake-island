@@ -1,0 +1,93 @@
+0. PARAMETERS
+  recipes, supply, rounds, offers, seats match VARIANT_A; START_FISH set to 12 as attacks4.py does
+  the SPEC prose reproduces new_game on 200/200 seeds; 7 units each: True
+1. OPTIMUM
+  optimum = top-four sum on 200/200; mean 92.6, range 54-116, 4th=5th on 50
+  any four projects fit the non-rope goods: True
+2. VARIANT A + 12 FISH, attacks2.report re-run vs attacks4.out
+  identical to attacks4.out: True
+  | == variant A + 12 fish: recipes need {'wood': 16, 'rope': 12, 'nails': 7, 'cloth': 10}
+  |   modal dropped set ('net', 'smokehouse') on 17/200 seeds; projects in optimum 4.00; a max value lie changes the optimum for the liar on 65/200 seeds
+  |   no trade 0.00; Smart binding 0.92; Smart handshake 0.79; SmartCautious handshake 0.84
+  |   truthful public values (binding) 0.97
+  |   talk-free "fold if my value < 12" (binding) 0.92
+  |   talk-free "fold if my value < 14" (binding) 0.92
+  |   talk-free "fold if my value < 16" (binding) 0.90
+  |   talk-free "fold if my value < 18" (binding) 0.87
+  |   value lie (claim 30) among truthful revealers: gain +0.92 (se 0.27); others -2.23
+  |   never-deliver among Smart        : gain +17.14 (se 0.87); table eff 0.66 vs 0.79
+  |   never-deliver among SmartCautious: gain +5.04 (se 0.66); table eff 0.76 vs 0.84
+  |   never-deliver among Gossip       : gain +3.51 (se 0.92); table eff 0.56 vs 0.61
+  |   Lowball among Smart (binding): gain -2.07 (se 0.67)
+3. M7 / M8 RE-RUN ON VARIANT A + 12 FISH (SPEC cites v1 + 6 fish)
+  M7 never-deliver among Strict (both sides wait)            gain  +0.00 (se 0.00, sd  0.0)  others  +0.00  eff 0.00 vs 0.00
+  M7 all Strict vs all Smart                                 gain -11.29 (se 0.71, sd 10.0)  others -61.45  eff 0.00 vs 0.79
+  M8 reneging in round 8 only, among Smart                   gain  +0.85 (se 0.24, sd  3.4)  others  -1.05  eff 0.79 vs 0.79
+  M8 reneging in rounds 7-8, among Smart                     gain  +1.94 (se 0.36, sd  5.1)  others  -2.69  eff 0.78 vs 0.79
+     reneging in round 8 only, among SmartCautious           gain  -1.79 (se 0.44, sd  6.3)  others  +0.34  eff 0.82 vs 0.84
+4. KERNEL-FAITHFUL TURN (scripts unchanged)
+  turn_k with the script learning rule reproduces barter_sim.turn on 40 seeds x 3 casts
+  4a. all-Smart binding: offers left unanswered at the end (would be rejected by the kernel) 1.27/game; outcome identical either way (no swap, slot already spent)
+  4b. who-failed-me rule. barter_sim flags a proposer that has not had a turn since the deal opened (round r first mover is last in round r+1); SPEC §1.7 only reports after the owner's turn
+     all-SmartCautious handshake, script rule: premature flags 4.01/game
+     SmartCautious eff                    script rule 0.836 -> SPEC rule 0.855
+     Gossip eff                           script rule 0.612 -> SPEC rule 0.785
+     never-deliver among SmartCautious    script rule +5.04 (se 0.66) -> SPEC rule +4.44 (se 0.62)
+     never-deliver among Gossip           script rule +3.51 (se 0.92) -> SPEC rule +1.54 (se 0.89)
+  4c. broken sides at game end by tag (SPEC learning rule)
+     all Smart                                per game: deliberate 0.00, unable 1.92, no_turn 0.32
+     all SmartCautious                        per game: deliberate 1.70, unable 2.42, no_turn 0.35
+     one never-deliver among SmartCautious    per game: deliberate 12.32, unable 2.96, no_turn 0.43; the deviant seat: deliberate 6.99, unable 0.00, no_turn 0.00
+  4d. ENDGAME FREE OPTION (handshake): bid everything on your last turn to residents who play after you
+  EndgameBidder among Smart                                  gain  +3.36 (se 0.47, sd  6.7)  others  -6.05  eff 0.79 vs 0.82
+  EndgameBidder among SmartCautious                          gain  +1.09 (se 0.62, sd  8.8)  others  -4.03  eff 0.82 vs 0.85
+  EndgameBidderSplit among Smart                             gain  +3.36 (se 0.47, sd  6.7)  others  -6.05  eff 0.79 vs 0.82
+  EndgameBidderSplit among SmartCautious                     gain  +0.99 (se 0.61, sd  8.7)  others  -4.03  eff 0.82 vs 0.85
+  (binding, same bidder pays) EndgameBidderSplit among Smart gain  -1.36 (se 0.43, sd  6.1)  others  -1.68  eff 0.89 vs 0.92
+  (binding, same bidder pays) EndgameBidderSplit among SmartCautious gain  -1.36 (se 0.43, sd  6.1)  others  -1.68  eff 0.89 vs 0.92
+  4e. SEAT EFFECTS (mean score by seat, 200 seeds; se about 0.65)
+     round 8 order: ['rowan', 'marcus', 'theo', 'nia', 'felix', 'mara']
+     Smart binding            mara  26.9  rowan  26.1  marcus  26.5  theo  25.9  nia  25.4  felix  26.4
+     SmartCautious handshake  mara  25.0  rowan  25.9  marcus  25.5  theo  25.3  nia  23.5  felix  25.7
+     Smart handshake          mara  26.2  rowan  25.2  marcus  24.2  theo  23.6  nia  23.4  felix  25.0
+     EndgameBidderSplit gain by seat among SmartCautious: mara -0.8  rowan +3.0  marcus +3.5  theo +2.2  nia +3.4  felix +0.7
+  4f. ANCHORS PER CELL (SPEC learning rule for handshake)
+     binding-silent  Smart                          eff 0.921
+     binding-talk    truthful revealers             eff 0.966
+     handshake-silent SmartCautious                 eff 0.855
+     handshake-talk  Gossip (shared blacklist)      eff 0.785
+     handshake-talk  truthful revealers, cautious   eff 0.955
+     handshake-talk  truthful revealers + Gossip    eff 0.917
+     paired diff  handshake-talk - handshake-silent (Gossip (shared black vs SmartCautious): mean -0.070, sd 0.167
+     paired diff  handshake-talk - handshake-silent (truthful revealers,  vs SmartCautious): mean +0.100, sd 0.157
+     paired diff  binding-talk - handshake-talk (truthful revealers vs truthful revealers, ): mean +0.012, sd 0.095
+     paired diff  binding-silent - handshake-silent (Smart vs SmartCautious): mean +0.067, sd 0.148
+  never-deliver among truthful cautious revealers            gain  +3.65 (se 0.48, sd  6.7)  others -13.71  eff 0.85 vs 0.95
+  4g. VALUE CLAIM RANGE
+     claim  30: moves the liar into the optimum on 65/200 seeds
+     claim  31: moves the liar into the optimum on 65/200 seeds
+     claim 100: moves the liar into the optimum on 65/200 seeds
+     liar seat outside the true optimum on 65/200 seeds
+5. FOLLOW-UPS
+  5a. Smart handshake: mara - nia +2.73 (se 0.99)
+  5a. SmartCautious handshake: mara - nia +1.50 (se 0.89)
+  5b. all-SmartCautious handshake: deliberate holds after the counterpart delivered 0.12/game (no deviant present)
+  5c. proposer-needs-a-later-turn rule OFF: eff Smart 0.819, SmartCautious 0.855, Gossip 0.785; no-turn sides/game (SmartCautious) 0.35
+        EndgameBidderSplit among Smart                       gain  +3.36 (se 0.47, sd  6.7)  others  -6.05  eff 0.79 vs 0.82
+        EndgameBidderSplit among SmartCautious               gain  +0.99 (se 0.61, sd  8.7)  others  -4.03  eff 0.82 vs 0.85
+        never-deliver among Smart                            gain +16.29 (se 0.87, sd 12.2)  others -27.54  eff 0.70 vs 0.82
+        never-deliver among SmartCautious                    gain  +4.44 (se 0.62, sd  8.8)  others -10.57  eff 0.79 vs 0.85
+        never-deliver among Gossip                           gain  +1.54 (se 0.89, sd 12.5)  others  -6.97  eff 0.72 vs 0.79
+        round-8-only reneger among Smart                     gain  +1.16 (se 0.32, sd  4.6)  others  -1.18  eff 0.82 vs 0.82
+  5c. proposer-needs-a-later-turn rule ON : eff Smart 0.810, SmartCautious 0.845, Gossip 0.781; no-turn sides/game (SmartCautious) 0.00
+        EndgameBidderSplit among Smart                       gain  +0.00 (se 0.00, sd  0.0)  others  +0.00  eff 0.81 vs 0.81
+        EndgameBidderSplit among SmartCautious               gain  -1.73 (se 0.43, sd  6.1)  others  +0.99  eff 0.84 vs 0.85
+        never-deliver among Smart                            gain +16.36 (se 0.83, sd 11.8)  others -28.06  eff 0.68 vs 0.81
+        never-deliver among SmartCautious                    gain  +4.82 (se 0.64, sd  9.0)  others -10.76  eff 0.78 vs 0.85
+        never-deliver among Gossip                           gain  +1.51 (se 0.88, sd 12.4)  others  -7.29  eff 0.71 vs 0.78
+        round-8-only reneger among Smart                     gain  +0.56 (se 0.18, sd  2.6)  others  -0.68  eff 0.81 vs 0.81
+  5d. OVERSELLER (handshake, SPEC learning rule)
+  Overseller among Smart                                     gain  +0.09 (se 0.15, sd  2.1)  others  +0.10  eff 0.82 vs 0.82
+      its broken sides per game: deliberate 0.00, unable 0.30, no_turn 0.07
+  Overseller among SmartCautious                             gain  -1.74 (se 0.45, sd  6.3)  others  +1.19  eff 0.85 vs 0.85
+      its broken sides per game: deliberate 0.00, unable 0.34, no_turn 0.06

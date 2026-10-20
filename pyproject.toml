@@ -1,0 +1,41 @@
+[project]
+name = "handshake-island"
+version = "0.1.0"
+description = "Six language-model residents barter under binding or handshake deals, with or without talk, refereed by a rules kernel and scored against an exact optimum"
+requires-python = ">=3.12,<3.13"
+license = "MIT"
+license-files = ["LICENSE"]
+dependencies = [
+    "anthropic>=1.15,<2",
+    "httpx>=0.28,<1",
+    "mcp>=1.20,<2",
+    "openai>=3.35,<4",
+    "opentelemetry-exporter-otlp-proto-http>=1.45,<2",
+    "opentelemetry-sdk>=1.45,<2",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8,<10",
+    "ruff>=0.17,<0.18",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = [".", "scripts"]
+
+[tool.uv]
+package = false
+
+[tool.ruff]
+line-length = 120
+# Frozen evidence, kept as it ran.
+extend-exclude = ["research"]
+
+[tool.ruff.format]
+quote-style = "single"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B"]
+# Personality and prompt texts run long; the formatter keeps code within the limit.
+ignore = ["E501"]

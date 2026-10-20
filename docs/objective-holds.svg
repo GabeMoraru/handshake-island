@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 355" width="720" height="355" role="img" aria-labelledby="t d" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="13">
+<!-- The counts are docs/results.md's E4 and E5 tables: scripts/report.py's Plain objective table over E1, E4 and E5's handshake games, whose recordings are not committed. -->
+<title id="t">Deliberate holds after delivery, of 240 seat-games</title>
+<desc id="d">Claude Haiku 5.5 with talk: 10 holds with "Your score is all that counts." in the prompt, 1 without it. Haiku without talk: 25 and 6. GPT-6 Luna without talk: 73 and 18.</desc>
+<style>
+.bg{fill:#fcfcfb}.ink{fill:#0b0b0b}.muted{fill:#52514e}.grid{stroke:#e4e3df;stroke-width:1}.e1{fill:#2a78d6}.e4{fill:#eb6834}
+@media (prefers-color-scheme: dark){.bg{fill:#1a1a19}.ink{fill:#f0efec}.muted{fill:#c3c2b7}.grid{stroke:#3a3a37}.e1{fill:#3987e5}.e4{fill:#d95926}}
+</style>
+<rect class="bg" width="720" height="355" rx="6"/>
+<text class="ink" x="24" y="30" font-size="15" font-weight="600">Holds after the other side had paid, of 240 seat-games</text>
+<rect class="e1" x="24" y="46" width="12" height="12" rx="2"/><text class="ink" x="42" y="57">With “Your score is all that counts.”</text>
+<rect class="e4" x="320" y="46" width="12" height="12" rx="2"/><text class="ink" x="338" y="57">That sentence left out</text>
+<line class="grid" x1="64" x2="700" y1="300.0" y2="300.0"/><text class="muted" x="56" y="304.0" text-anchor="end">0</text>
+<line class="grid" x1="64" x2="700" y1="233.3" y2="233.3"/><text class="muted" x="56" y="237.3" text-anchor="end">25</text>
+<line class="grid" x1="64" x2="700" y1="166.7" y2="166.7"/><text class="muted" x="56" y="170.7" text-anchor="end">50</text>
+<line class="grid" x1="64" x2="700" y1="100.0" y2="100.0"/><text class="muted" x="56" y="104.0" text-anchor="end">75</text>
+<path class="e1" d="M108 300V277.3Q108 273.3 112.0 273.3H164.0Q168 273.3 168 277.3V300Z"><title>Haiku, with talk, with the sentence: 10 of 240</title></path>
+<text class="ink" x="138" y="265.3" text-anchor="middle">10</text>
+<path class="e4" d="M172 300V298.7Q172 297.3 173.3 297.3H230.7Q232 297.3 232 298.7V300Z"><title>Haiku, with talk, without it: 1 of 240</title></path>
+<text class="ink" x="202" y="289.3" text-anchor="middle">1</text>
+<text class="ink" x="170" y="322" text-anchor="middle">Haiku, with talk</text>
+<text class="muted" x="170" y="340" text-anchor="middle">exact p = 0.012</text>
+<path class="e1" d="M338 300V237.3Q338 233.3 342.0 233.3H394.0Q398 233.3 398 237.3V300Z"><title>Haiku, without talk, with the sentence: 25 of 240</title></path>
+<text class="ink" x="368" y="225.3" text-anchor="middle">25</text>
+<path class="e4" d="M402 300V288.0Q402 284.0 406.0 284.0H458.0Q462 284.0 462 288.0V300Z"><title>Haiku, without talk, without it: 6 of 240</title></path>
+<text class="ink" x="432" y="276.0" text-anchor="middle">6</text>
+<text class="ink" x="400" y="322" text-anchor="middle">Haiku, without talk</text>
+<text class="muted" x="400" y="340" text-anchor="middle">exact p = 0.0009</text>
+<path class="e1" d="M568 300V109.3Q568 105.3 572.0 105.3H624.0Q628 105.3 628 109.3V300Z"><title>Luna, without talk, with the sentence: 73 of 240</title></path>
+<text class="ink" x="598" y="97.3" text-anchor="middle">73</text>
+<path class="e4" d="M632 300V256.0Q632 252.0 636.0 252.0H688.0Q692 252.0 692 256.0V300Z"><title>Luna, without talk, without it: 18 of 240</title></path>
+<text class="ink" x="662" y="244.0" text-anchor="middle">18</text>
+<text class="ink" x="630" y="322" text-anchor="middle">Luna, without talk</text>
+<text class="muted" x="630" y="340" text-anchor="middle">exact p &lt; 0.0001</text>
+</svg>

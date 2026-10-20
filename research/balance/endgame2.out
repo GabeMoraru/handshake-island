@@ -1,0 +1,69 @@
+1. SETTLEMENT INVARIANTS (mode c, every table and deviant cast endgame.py uses)
+  2000 settlements: no side paid twice, every delivery covered by pre-settlement holdings, fish = 72
+  settling residents in reverse order changes the end state on 0 of 800 games (simultaneous)
+2. CHAINS (mode c): sides a willing owner could not cover at settlement start but could after incoming settlement goods
+  Smart                willing but unable at settlement 1.890/game; of which payable after settlement inflows 0.000/game
+  SmartCautious        willing but unable at settlement 2.110/game; of which payable after settlement inflows 0.010/game
+  Gossip               willing but unable at settlement 2.130/game; of which payable after settlement inflows 0.000/game
+  truthful revealers   willing but unable at settlement 1.130/game; of which payable after settlement inflows 0.005/game
+3. ALL-SMART EFFICIENCY, (c) vs (a), seeds that differ
+  seed 38: nia lost its project after delivering 1 side(s) at settlement; theo completed
+  seed 50: marcus lost its project after delivering 2 side(s) at settlement
+  seed 77: nia lost its project after delivering 2 side(s) at settlement; theo completed
+  seed 141: rowan lost its project after delivering 2 side(s) at settlement
+  seed 159: nia lost its project after delivering 2 side(s) at settlement
+  5 seeds differ
+  seeds with identical efficiency (a) vs (c): Smart 195/200, SmartCautious 195/200, Gossip 200/200, truthful revealers 200/200
+4. ROUND-8-ONLY RENEGER AMONG SMART, (a) vs (c): deviant score and honest baseline score of the same seat
+  (a) deviant seat 25.39, honest seat 24.24, gain +1.16 (se 0.32)
+  (c) deviant seat 25.59, honest seat 24.07, gain +1.53 (se 0.37)
+  (c)-(a): deviant seat +0.20 (se 0.06) (paid at settlement by honest round-8 proposers it never pays), honest seat -0.17 (se 0.18) (pays its own late sides)
+5. SENSITIVITY: SmartCautious settles only if the counterpart delivered, instead of by its round 1-8 rule
+  SmartCautious        eff 0.855; deliberate holds after delivery 0.00 (se 0.00); sides delivered at settlement 0.42; calls 51.00
+  never-deliver among SmartCautious                               +4.50 (se 0.61)  others -10.63
+  truthful revealers   eff 0.955; deliberate holds after delivery 0.00 (se 0.00); sides delivered at settlement 0.10; calls 49.73
+  never-deliver among truthful revealers                          +3.70 (se 0.47)  others -13.76
+  round-8-only reneger among SmartCautious                        -0.66 (se 0.44)  others  -0.38
+  settlement-only reneger among SmartCautious                     -1.41 (se 0.42)  others  +0.41
+  last-turn bidder among SmartCautious                            +1.31 (se 0.60)  others  -4.41
+6. ENDGAME BIDDERS ADAPTED TO EACH RULE (paired seat gain, points)
+                                                            (a)              (b)              (c)
+  round-8-only reneger (no bid) among Smart        +1.16 (0.32)     +0.56 (0.18)     +1.53 (0.37)
+  round-8-only reneger (no bid) among SmartCautious     -0.73 (0.46)     -1.16 (0.44)     -0.67 (0.44)
+  round-8-only reneger (no bid) among Gossip       -0.71 (0.64)     -1.46 (0.63)     -0.76 (0.63)
+  last-turn bidder (endgame.py) among Smart        +3.36 (0.47)     +0.00 (0.00)     +3.73 (0.51)
+  last-turn bidder (endgame.py) among SmartCautious     +0.99 (0.61)     -1.73 (0.43)     +1.30 (0.60)
+  last-turn bidder (endgame.py) among Gossip       +2.23 (0.77)     -1.92 (0.62)     +2.35 (0.76)
+  round-7 bidder, holds from round 8 among Smart     +4.93 (0.58)     +4.55 (0.56)     +5.72 (0.63)
+  round-7 bidder, holds from round 8 among SmartCautious     +3.25 (0.64)     +3.02 (0.66)     +3.33 (0.64)
+  round-7 bidder, holds from round 8 among Gossip     +3.63 (0.78)     +3.29 (0.77)     +3.59 (0.77)
+  round-7 + last-turn bidder, holds among Smart     +5.78 (0.59)     +4.55 (0.56)     +6.58 (0.65)
+  round-7 + last-turn bidder, holds among SmartCautious     +3.73 (0.64)     +3.02 (0.66)     +3.79 (0.64)
+  round-7 + last-turn bidder, holds among Gossip     +4.11 (0.78)     +3.29 (0.77)     +4.06 (0.77)
+7. TRAP: the other five seats' total paired change when one seat bids late and holds (victims)
+  last-turn bidder among Smart                 (a)     -6.05  (b)     +0.00  (c)     -6.07
+  last-turn bidder among SmartCautious         (a)     -4.03  (b)     +0.99  (c)     -4.10
+  round-7 bidder among Smart                   (a)    -10.22  (b)    -10.35  (c)    -10.73
+  round-7 bidder among SmartCautious           (a)     -8.43  (b)     -8.65  (c)     -8.39
+  all seats Smart but hold at settlement (c): eff 0.819, identical to all-Smart (a) on 200/200 seeds
+  ... counterpart delivered, owner able at settlement and held: 0.32/game (se 0.04); endgame.py's honest Smart table pays these at settlement
+8. LAST-TURN BIDDER GAIN BY SEAT UNDER (c); (a) among SmartCautious in kernel_rules.out 4e: mara -0.8 rowan +3.0 marcus +3.5 theo +2.2 nia +3.4 felix +0.7
+  among Smart          mara +0.0  rowan +4.4  marcus +5.7  theo +4.7  nia +5.7  felix +4.2
+  among SmartCautious  mara -0.8  rowan +3.3  marcus +4.1  theo +2.4  nia +3.6  felix +0.9
+9. PAIRED CONTRASTS OF THE DEVIANT SEAT GAIN BETWEEN RULES (same seed, same seat), mean (se)
+  round-8-only reneger among Smart               (c)-(a) +0.38 (se 0.17)   (c)-(b) +0.96 (se 0.29)   (a)-(b) +0.59 (se 0.24)
+  round-8-only reneger among SmartCautious       (c)-(a) +0.07 (se 0.10)   (c)-(b) +0.49 (se 0.23)   (a)-(b) +0.42 (se 0.25)
+  round-7 bidder among Smart                     (c)-(a) +0.80 (se 0.21)   (c)-(b) +1.18 (se 0.33)   (a)-(b) +0.38 (se 0.33)
+  round-7 bidder among SmartCautious             (c)-(a) +0.07 (se 0.10)   (c)-(b) +0.30 (se 0.31)   (a)-(b) +0.23 (se 0.33)
+  round-7 + last-turn bidder among Smart         (c)-(a) +0.80 (se 0.21)   (c)-(b) +2.02 (se 0.38)   (a)-(b) +1.23 (se 0.38)
+  round-7 + last-turn bidder among SmartCautious (c)-(a) +0.07 (se 0.10)   (c)-(b) +0.77 (se 0.35)   (a)-(b) +0.70 (se 0.37)
+10. SETTLEMENT, honest tables (c): cost to the owner of each side delivered at settlement (score if held minus score as played)
+  Smart                0.34 sides/game; holding would have scored more on 69/69 (mean +4.90 points); agreements with neither side paid and a deliberate settlement hold 0.00/game
+  SmartCautious        0.41 sides/game; holding would have scored more on 77/82 (mean +3.73 points); agreements with neither side paid and a deliberate settlement hold 1.55/game
+  Gossip               0.15 sides/game; holding would have scored more on 31/31 (mean +3.19 points); agreements with neither side paid and a deliberate settlement hold 1.67/game
+  truthful revealers   0.10 sides/game; holding would have scored more on 21/21 (mean +2.86 points); agreements with neither side paid and a deliberate settlement hold 0.61/game
+11. UNPAID SIDES AT THE END BY TAG, honest tables, per game; d+ = deliberate after the counterpart delivered, d- = deliberate while the counterpart had not
+  Smart                (a) d+ 0.00 d- 0.00 unable 1.92 no_turn 0.32   (c) d+ 0.00 d- 0.00 unable 1.89 no_turn 0.00
+  SmartCautious        (a) d+ 0.12 d- 1.58 unable 2.42 no_turn 0.35   (c) d+ 0.09 d- 1.55 unable 2.42 no_turn 0.00
+  Gossip               (a) d+ 0.86 d- 1.76 unable 2.46 no_turn 0.18   (c) d+ 0.86 d- 1.75 unable 2.50 no_turn 0.00
+  truthful revealers   (a) d+ 0.00 d- 0.62 unable 1.42 no_turn 0.10   (c) d+ 0.00 d- 0.61 unable 1.43 no_turn 0.00

@@ -1,0 +1,58 @@
+# No model or Jev call runs here.
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  python:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      # setup-uv publishes no floating major tag; v10.3.0 is an immutable release.
+      - uses: astral-sh/setup-uv@v10.3.0
+        with:
+          version: "0.12.13"
+          python-version: "3.12"
+      - run: uv sync --locked
+      - run: uv run ruff check .
+      - run: uv run ruff format --check .
+      - run: uv run python -m pytest -q
+
+  sandbox:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        backend: [docker, podman]
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: astral-sh/setup-uv@v10.3.0
+        with:
+          version: "0.12.13"
+          python-version: "3.12"
+      - run: uv sync --locked
+      - name: Build, probe and pin the worker image
+        run: uv run python scripts/setup.py --backend ${{ matrix.backend }}
+      - name: Play a scripted game in the worker and match it to the host
+        run: uv run python scripts/verify_worker.py
+      - name: Require the probe to catch each weakened sandbox
+        run: uv run python scripts/verify_sandbox_controls.py
+      - name: Show the build and worker logs
+        if: failure()
+        run: tail -n 200 runtime/setup.log runtime/logs/* || true

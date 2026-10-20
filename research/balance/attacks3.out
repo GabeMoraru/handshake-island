@@ -1,0 +1,4 @@
+v1        fish  6: Smart binding 0.79; truthful values 0.89; net-folds 0.89; never-deliver among SmartCautious +6.83 (se 0.71)
+v1        fish 12: Smart binding 0.85; truthful values 0.96; net-folds 0.95; never-deliver among SmartCautious +5.08 (se 0.65)
+variant A fish  6: Smart binding 0.81; truthful values 0.80; net-folds 0.79; never-deliver among SmartCautious +5.92 (se 0.73)
+variant A fish 12: Smart binding 0.92; truthful values 0.97; net-folds 0.90; never-deliver among SmartCautious +5.04 (se 0.66)
