@@ -5,13 +5,13 @@
 
 ## Context
 
-The earlier Winter Island simulation scored only collective survival. Honest cooperation was the dominant play: it kept all six residents alive in 40 of 40 scripted seasons, and in a recorded Haiku season every one of 23 sightings was passed on honestly (persistent-agent-universe, `docs/design.md` and `README.md`). Measuring social judgement needs individual stakes, private information and a ground truth that code can check. Bracketed M numbers refer to [design §7](../design.md#7-numbers-and-their-sources).
+A game scored only on collective survival makes honest cooperation the dominant play, so it cannot tell judgement from compliance. Measuring social judgement needs individual stakes, private information and a ground truth that code can check. Bracketed M numbers refer to [design §6](../design.md#6-numbers-and-their-sources).
 
 A first barter design failed its own balance check: scarcity came from the public recipes alone. A talk-free script matched truthful talk, and a value lie paid nothing [M6].
 
 ## Decision
 
-1. **The game.** Six residents (the earlier cast's names and personality texts) barter wood, rope, nails, cloth and fish for 8 rounds. Each secretly owns one project with a public recipe and a private value from 10 to 30. Score = project value if completed + fish held.
+1. **The game.** Six residents, each with a fixed name and personality text, barter wood, rope, nails, cloth and fish for 8 rounds. Each secretly owns one project with a public recipe and a private value from 10 to 30. Score = project value if completed + fish held.
 2. **Recipes and fish.** Every recipe needs 2 rope and the island holds 8, so four projects fit. Everyone starts with 12 fish. The deal follows `research/balance/barter_sim.py` with variant A from the seed, and the rules are the ones that study tested, plus settlement (6).
 3. **Arms.** A 2×2 of enforcement and talk:
    - binding: the kernel executes accepted deals;

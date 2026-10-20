@@ -9,7 +9,7 @@ from handshake import island
 
 CONFIG_VERSION = 2
 
-# (id, name, personality) in island.IDS order. The personality texts are Winter Island's, word for word.
+# (id, name, personality) in island.IDS order.
 CAST = (
     (
         'mara',

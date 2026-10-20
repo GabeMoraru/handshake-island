@@ -5,7 +5,7 @@
 
 ## Context
 
-The earlier project ran on local inference by default. There a decision took about 5.7 minutes at the model's own reasoning defaults (persistent-agent-universe, `docs/decisions/0005`), so a game of 48 to 54 decisions would take 4.5 to 5 hours. Hosted models answer in seconds and cost cents per game, and they are the models most people would ask about.
+On local inference at the model's own reasoning defaults, a decision can take minutes; at about 5.7 minutes a decision, a game of 48 to 54 decisions would take 4.5 to 5 hours. Hosted models answer in seconds and cost cents per game, and they are the models most people would ask about.
 
 ## Decision
 

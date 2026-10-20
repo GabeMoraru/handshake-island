@@ -1,4 +1,4 @@
-"""The three endgame options of SPEC.md §1.7 on seeds 1-200, under the kernel's information rule (scripts only).
+"""The three endgame options for design §1.7 on seeds 1-200, under the kernel's information rule (scripts only).
 
 (a) the tested rules; (b) an offer needs a proposer turn after the recipient's answer (kernel_rules.py 5c);
 (c) a settlement turn: after round 8 every resident decides deliver/hold for each side it still owes, against its

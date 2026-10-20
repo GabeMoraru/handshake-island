@@ -3,7 +3,7 @@
     uv run python scripts/report.py RECORDING... > report.md
 
 Pass the recordings of one experiment and of those paired with it, E1 with E3, E2 and E4, as play.py printed their paths.
-Leave P1's games out: they repeat E1's seed, arm and cast, and two recordings of one game are refused.
+Two recordings of one game are refused.
 
 It refuses to run unless every recording replays (handshake.replay), then plays each completed game's turns again on
 a fresh kernel. Games are grouped by arm and cast, the players of their six seats, and a seat's numbers by the model

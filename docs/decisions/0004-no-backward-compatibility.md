@@ -5,7 +5,7 @@
 
 ## Context
 
-The earlier project learned that code kept to read old formats grows faster than the code that runs the current one. It has to be read, tested and kept working, and it serves no current game. Recordings in development have no outside users.
+Code kept to read old formats tends to grow faster than the code that runs the current one. It has to be read, tested and kept working, and it serves no current game. Recordings in development have no outside users.
 
 ## Decision
 

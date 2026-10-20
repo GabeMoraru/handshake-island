@@ -1,6 +1,6 @@
-"""Balance review of handshake/SPEC.md against the tested variant A (scripts only, no model calls).
+"""Balance review of the game's rules (docs/design.md §1) against the tested variant A (scripts only, no model calls).
 
-Imports the study files beside it (barter_sim.py, attacks.py, attacks2.py), applies the SPEC's parameters, re-runs
+Imports the study files beside it (barter_sim.py, attacks.py, attacks2.py), applies the rules' parameters, re-runs
 the anchor numbers on seeds 1-200, then tests the kernel's information rule and rules the scripts did not model.
 Run: PYTHONDONTWRITEBYTECODE=1 python3 -I kernel_rules.py > kernel_rules.out
 """
@@ -13,18 +13,17 @@ import statistics as st
 import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-REIMAGINE = HERE
 sys.path.insert(0, HERE)
 import barter_sim as bs  # noqa: E402
 import attacks2  # noqa: E402
 from attacks import Gossip, every, gain, one, with_blacklist  # noqa: E402
 from barter_sim import IDS, MATERIALS, Smart, SmartCautious, SmartReneger  # noqa: E402
 
-assert bs.__file__.startswith(REIMAGINE) and attacks2.__file__.startswith(REIMAGINE), 'imported the wrong copies'
+assert bs.__file__.startswith(HERE) and attacks2.__file__.startswith(HERE), 'imported the wrong copies'
 SEEDS = range(1, 201)
 
-# ------------------------------------------------------------------ 0. the SPEC's parameters, transcribed from SPEC.md §1.1-1.4
-SPEC_RECIPES = {  # SPEC.md:17-22, catalogue order
+# ------------------------------------------------------------------ 0. the rules' parameters, transcribed from design §1.1-1.4
+SPEC_RECIPES = {  # design §1.1, catalogue order
     'boat': {'wood': 4, 'rope': 2, 'cloth': 2},
     'smokehouse': {'wood': 4, 'rope': 2, 'nails': 2},
     'net': {'wood': 1, 'rope': 2, 'cloth': 3},
@@ -46,7 +45,7 @@ print('  recipes, supply, rounds, offers, seats match VARIANT_A; START_FISH set 
 
 
 def spec_deal(seed):
-    """The deal exactly as SPEC.md:28 words it, written independently of new_game."""
+    """The deal exactly as design §1.1 words it, written independently of new_game."""
     rng = random.Random(seed)
     projects = dict(zip(SPEC_IDS, rng.sample(list(SPEC_RECIPES), 6)))
     values = {a: rng.randrange(10, 31, 2) for a in SPEC_IDS}

@@ -25,11 +25,11 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 SCRATCH = os.path.dirname(HERE)
 RUNS = os.path.join(HERE, 'runs')
 LEDGER = os.path.join(RUNS, 'ledger.jsonl')
-# It ran with a local checkout of persistent-agent-universe (Winter Island) also on sys.path, for universe.config.
-sys.path[:0] = [os.path.join(SCRATCH, 'reimagine'), os.path.join(SCRATCH, 'reimagine', 'verify')]
+# The balance study beside it deals; handshake/config.py holds the personality texts the probe ran with.
+sys.path[:0] = [os.path.join(SCRATCH, 'balance'), os.path.dirname(SCRATCH)]
 import barter_sim as bs  # noqa: E402  dealing from the seed, exactly as the sims did
 from attacks2 import VARIANT_A  # noqa: E402
-from universe.config import PERSONAS  # noqa: E402  names and personality texts (read only)
+from handshake.config import CAST as PERSONAS  # noqa: E402  names and personality texts (read only)
 
 bs.RECIPES, bs.START_FISH = VARIANT_A, 12
 IDS, MATERIALS, SUPPLY = bs.IDS, bs.MATERIALS, bs.SUPPLY

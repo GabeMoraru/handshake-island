@@ -14,4 +14,3 @@ Handshake Island is a barter game for six language-model residents, refereed by 
 - **Small structured additions** to `act` or the kernel are preferred over new tools, roles or model calls.
 - **Evaluation mode** (`handshake/evaluation.py`, `Runtime.begin_evaluation`) runs every measured game ([0006](docs/decisions/0006-evaluation-mode.md)). Keep it.
 - **Verify with bounded tests and short runs.** Preserve failed traces. Never silently retry, extend a run or raise a budget; the spend ledger's cap stands.
-- **Public text** (code, docs, commits, pull requests, branch names) describes the game, the code and the results, and nothing about who the project is for or how it was planned.

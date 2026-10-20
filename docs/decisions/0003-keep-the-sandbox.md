@@ -5,11 +5,11 @@
 
 ## Context
 
-The game loop handles model output all day: tool inputs, speech and provider content blocks. The worker never executes it, and the kernel validates every act, so the main defence is that model output stays inert data. Two risks remain: a kernel or loop bug reachable from crafted JSON, and API keys sharing a process with the code that handles model text. The earlier project already had a container sandbox (Apple Container on macOS, Docker or Podman on Linux) with an isolation probe and negative controls in CI.
+The game loop handles model output all day: tool inputs, speech and provider content blocks. The worker never executes it, and the kernel validates every act, so the main defence is that model output stays inert data. Two risks remain: a kernel or loop bug reachable from crafted JSON, and API keys sharing a process with the code that handles model text.
 
 ## Decision
 
-1. **The game runs in the container.** The kernel and the game loop run in the worker, inside a container with:
+1. **The game runs in the container.** The kernel and the game loop run in the worker, inside a container (Apple Container on macOS, Docker or Podman on Linux) with:
    - no network, a read-only root, a non-root user and no capabilities;
    - no credentials, and only the game's directory mounted;
    - limits on CPU, memory and scratch space.
